@@ -7,6 +7,26 @@
     <router-view/>
   </div>
 </template>
+<script>
+import io from 'socket.io-client';
+import { mapActions } from 'vuex';
+
+export default {
+  name: 'main-app',
+  methods: {
+    ...mapActions([
+      'addTask',
+    ]),
+  },
+  mounted() {
+    const socket = io('http://localhost:3000');
+
+    socket.on('message', (evt) => {
+      this.addTask(evt);
+    });
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

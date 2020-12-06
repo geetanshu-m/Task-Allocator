@@ -4,12 +4,14 @@
   "description": "API for the task allocator app",
   "main": "main.js",
   "scripts": {
-    "run":"node main.js",
+    "run": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^3.0.3"
   }
 }

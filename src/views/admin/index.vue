@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import axios from 'axios';
 
 export default {
   name: 'admin-screen',
@@ -21,16 +21,22 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      'addTask',
-    ]),
     formSubmit() {
       if (this.task.content === '') {
         return;
       }
       this.task.time = new Date();
       // const obj = Object.assign(this.task);
-      this.addTask(JSON.stringify(this.task));
+      // this.sendTask(JSON.stringify(this.task));
+      axios.post(
+        'http://localhost:3000/addTask',
+        this.task,
+      ).then((res) => {
+        console.log('success send', res);
+      })
+        .catch((err) => {
+          console.log('some error occured', err);
+        });
       this.task.content = '';
     },
   },
