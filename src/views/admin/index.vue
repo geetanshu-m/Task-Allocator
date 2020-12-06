@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'admin-screen',
   data() {
@@ -19,12 +21,16 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      'addTask',
+    ]),
     formSubmit() {
       if (this.task.content === '') {
         return;
       }
       this.task.time = new Date();
-      console.log(JSON.stringify(this.task));
+      // const obj = Object.assign(this.task);
+      this.addTask(JSON.stringify(this.task));
       this.task.content = '';
     },
   },
