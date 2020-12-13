@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/client',
+    path: '/',
     name: 'Client',
     component: () => import('../views/client/index.vue'),
     // component: client,
