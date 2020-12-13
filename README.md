@@ -1,24 +1,10 @@
-# task-allocator
+# Task Allocation
 
-## Project setup
-```
-npm install
-```
+Multi-user, Multi-hierarchy app for task allocation. It is still in development [WIP]🚧
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Features
+- Getting tasks assigned in real time across the users
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Tech stack
+- VueJS
+- Express, Socket.IO
