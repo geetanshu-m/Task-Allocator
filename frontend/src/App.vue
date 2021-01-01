@@ -1,53 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Client View</router-link> |
-      <router-link to="/admin">Admin View</router-link>
-    </div>
-    <router-view/>
+    <header/>
+    <main-container/>
   </div>
 </template>
 <script>
-import io from 'socket.io-client';
-import { mapActions } from 'vuex';
+import header from '@/components/layout/header.vue'
+import mainContainer from '@/components/layout/mainContainer.vue'
 
 export default {
   name: 'main-app',
-  methods: {
-    ...mapActions([
-      'addTask',
-    ]),
-  },
-  mounted() {
-    const socket = io('http://localhost:3000');
-    // const socket = new WebSocket('ws://localhost:3000');
-
-    socket.on('message', (evt) => {
-      this.addTask(evt);
-    });
-  },
+  components:{
+    header,
+    mainContainer
+  }
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+body{
+  padding:0px;
+  margin:0px;
 }
 </style>
